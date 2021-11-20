@@ -1,10 +1,11 @@
 {
   "name": "metric-conversion",
   "version": "1.0.0",
-  "description": "",
+  "description": "Express api for metric/imperial conversion",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
+    "standard": "standard --fix",
     "test": "jest"
   },
   "author": "",
@@ -18,5 +19,8 @@
     "jest": "^27.3.1",
     "nodemon": "^2.0.15",
     "standard": "^16.0.4"
+  },
+  "standard": {
+    "globals": ["describe", "it", "expect"]
   }
 }
