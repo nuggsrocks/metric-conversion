@@ -1,6 +1,6 @@
-const convert = require('../convert')
+const verifyInput = require('../verifyInput')
 
-describe('convert', () => {
+describe('verifyInput', () => {
   it.each([
     'gal',
     'L',
@@ -10,7 +10,7 @@ describe('convert', () => {
     'kg'
   ])('should handle valid unit: %s', (unit) => {
     function f () {
-      convert(unit)
+      verifyInput(unit)
     }
     expect(f).not.toThrow()
   })
@@ -21,7 +21,7 @@ describe('convert', () => {
     'meters'
   ])('should throw error on invalid unit input: %s', (unit) => {
     function f () {
-      convert(unit)
+      verifyInput(unit)
     }
     expect(f).toThrow()
   })
@@ -33,7 +33,7 @@ describe('convert', () => {
     { type: 'fraction/decimal', input: '0.2/0.5lbs' }
   ])('should handle $type input', ({ input }) => {
     function f () {
-      convert(input)
+      verifyInput(input)
     }
     expect(f).not.toThrow()
   })
@@ -43,7 +43,7 @@ describe('convert', () => {
     { type: 'double decimal', input: '4.5.6mi' }
   ])('should throw error on $type input', ({ input }) => {
     function f () {
-      convert(input)
+      verifyInput(input)
     }
     expect(f).toThrow()
   })
