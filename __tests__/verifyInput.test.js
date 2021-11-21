@@ -47,4 +47,15 @@ describe('verifyInput', () => {
     }
     expect(f).toThrow()
   })
+
+  it.each([
+    { value: '3', unit: 'gal' },
+    { value: '7.56', unit: 'l' },
+    { value: '1', unit: 'mi' },
+    { value: '45', unit: 'km' },
+    { value: '16', unit: 'lbs' },
+    { value: '4/5', unit: 'kg' }
+  ])('should return object with correct value and unit', ({value, unit}) => {
+    expect(verifyInput(value + unit)).toEqual({value, unit})
+  })
 })

@@ -14,10 +14,10 @@ module.exports = function (input) {
 
   if (splitIndex === undefined) {
     value = '1'
-    unit = input
+    unit = input.toLowerCase()
   } else {
     value = input.substring(0, splitIndex)
-    unit = input.substring(splitIndex)
+    unit = input.substring(splitIndex).toLowerCase()
   }
 
   const decimalMatch = value.match(decimalRegex)
@@ -48,7 +48,9 @@ module.exports = function (input) {
     }
   }
 
-  if (units[unit.toLowerCase()] === undefined) {
+  if (units[unit] === undefined) {
     throw new Error('Invalid unit')
   }
+
+  return {value, unit}
 }
