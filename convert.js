@@ -27,9 +27,33 @@ module.exports = function (input) {
     unit = input.substring(splitIndex)
   }
 
-  if ((value.match(decimalRegex) !== null && value.match(decimalRegex).length > 1) ||
-    (value.match(fractionRegex) !== null && value.match(fractionRegex).length > 1)) {
+  const decimalMatch = value.match(decimalRegex)
+  let extraDecimal = false
+
+  if (decimalMatch !== null && decimalMatch.length > 1) {
+    extraDecimal = true
+  }
+
+  const fractionMatch = value.match(fractionRegex)
+  let extraFraction = false
+
+  if (fractionMatch !== null && fractionMatch.length > 1) {
+    extraFraction = true
+  }
+
+  if (extraFraction) {
     throw new Error('Invalid value')
+  }
+
+  if (extraDecimal) {
+    const decimalFractionRegex = /\..\/.\./g
+
+    const isValid = decimalFractionRegex.test(value)
+
+    if (fractionMatch === null || !isValid) {
+      throw new Error('Invalid value')
+    }
+
   }
 
   if (!units.includes(unit.toLowerCase())) {
