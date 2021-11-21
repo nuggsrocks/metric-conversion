@@ -55,7 +55,7 @@ describe('verifyInput', () => {
     { value: '45', unit: 'km' },
     { value: '16', unit: 'lbs' },
     { value: '4/5', unit: 'kg' }
-  ])('should return object with correct value and unit', ({value, unit}) => {
-    expect(verifyInput(value + unit)).toEqual({value, unit})
+  ])('should return object with correct value and unit', ({ value, unit }) => {
+    expect(verifyInput(value + unit)).toEqual({ value, unit })
   })
 })

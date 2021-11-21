@@ -52,5 +52,5 @@ module.exports = function (input) {
     throw new Error('Invalid unit')
   }
 
-  return {value, unit}
+  return { value, unit }
 }

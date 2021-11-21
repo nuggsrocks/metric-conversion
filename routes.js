@@ -13,7 +13,7 @@ module.exports = function (app) {
       const input = verifyInput(req.query.q)
       value = input.value
       unit = input.unit
-    } catch(e) {
+    } catch (e) {
       return res.status(400).type('text').send(e.message + '!')
     }
 
