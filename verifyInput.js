@@ -46,10 +46,9 @@ module.exports = function (input) {
     if (fractionMatch === null || !isValid) {
       throw new Error('Invalid value')
     }
-
   }
 
-  if (!units.includes(unit.toLowerCase())) {
+  if (units[unit.toLowerCase()] === undefined) {
     throw new Error('Invalid unit')
   }
 }

@@ -1,15 +1,10 @@
 module.exports = {
-  units: [
-    'gal',
-    'l',
-    'mi',
-    'km',
-    'lbs',
-    'kg'
-  ],
-  conversionRates: {
-    galToL: 3.78,
-    miToKm: 1.609344,
-    lbsToKg: 0.4535924
+  units: {
+    gal: { type: 'imperial', convertsTo: 'l', conversionRate: 3.78 },
+    l: { type: 'metric', convertsTo: 'gal', conversionRate: 1 / 3.78 },
+    mi: { type: 'imperial', convertsTo: 'km', conversionRate: 1.609344 },
+    km: { type: 'metric', convertsTo: 'mi', conversionRate: 1 / 1.609344 },
+    lbs: { type: 'imperial', convertsTo: 'kg', conversionRate: 0.4535924 },
+    kg: { type: 'metric', convertsTo: 'lbs', conversionRate: 1 / 0.4535924 }
   }
 }
